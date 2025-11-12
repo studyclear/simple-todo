@@ -1,0 +1,145 @@
+/* Dark neon theme */
+:root{
+  --neon-cyan: rgba(20, 220, 255, 0.15);
+  --neon-purple: rgba(170, 80, 255, 0.12);
+  --accent: #7df6ff;
+  --accent-2: #c88bff;
+  --muted: #9aa0a6;
+  --card-bg: rgba(15,15,20,0.7);
+}
+
+/* Page */
+body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+
+/* Neon title */
+.neon-title{
+  color: var(--accent);
+  text-shadow:
+    0 0 8px rgba(125,246,255,0.15),
+    0 0 18px rgba(125,246,255,0.10);
+  letter-spacing: -0.5px;
+}
+
+/* Cards */
+.neon-card{
+  background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(125,246,255,0.08);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5), 0 0 30px rgba(125,246,255,0.03) inset;
+  border-radius: 14px;
+}
+
+/* Inputs */
+.neon-input{
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(125,246,255,0.06);
+  color: #e8faff;
+  box-shadow: 0 4px 14px rgba(125,246,255,0.02) inset;
+  border-radius: 10px;
+  transition: box-shadow .18s, border-color .18s;
+}
+.neon-input:focus{
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 4px 28px rgba(125,246,255,0.12);
+  background: rgba(255,255,255,0.03);
+}
+
+/* Tiny neon select */
+.neon-select{
+  background: rgba(255,255,255,0.01);
+  color: #e8faff;
+  border: 1px solid rgba(200,140,255,0.06);
+  border-radius: 10px;
+}
+
+/* Lists */
+.neon-list .list-group-item{
+  background: transparent;
+  border: none;
+  color: #eafcff;
+  padding-left: 0;
+  padding-right: 0;
+}
+.neon-list .list-group-item + .list-group-item{
+  border-top: 1px dashed rgba(255,255,255,0.02);
+}
+
+/* Glowing badges and small stuff */
+.neon-badge{
+  color: #e8faff;
+  border: 1px solid rgba(125,246,255,0.08);
+  padding: .35rem .6rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(125,246,255,0.035);
+}
+
+/* Timer styling */
+.neon-timer{
+  font-weight: 700;
+  color: #d8ffff;
+  text-shadow: 0 6px 30px rgba(125,246,255,0.08);
+}
+.neon-subtitle{
+  color: var(--accent-2);
+  text-shadow: 0 0 14px rgba(200,140,255,0.08);
+}
+
+/* Quote box */
+.neon-quote{
+  padding: 12px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(125,246,255,0.03), rgba(200,140,255,0.02));
+  border: 1px solid rgba(255,255,255,0.018);
+  color: #eafcff;
+}
+
+/* Progress bar slight glow */
+.neon-progress .progress-bar{
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 6px 24px rgba(125,246,255,0.06);
+}
+
+/* List item custom */
+.todo-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 6px;
+}
+
+/* Task title */
+.task-title{
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+/* Small pill for goal tag */
+.goal-pill{
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(200,140,255,0.06);
+  background: rgba(200,140,255,0.02);
+  color: #f1eaff;
+}
+
+/* Glow on hover for buttons */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(125,246,255,0.06);
+}
+
+/* Tiny animations */
+.fade-in {
+  animation: fadeInUp .28s ease both;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* small responsive */
+@media (max-width: 767px){
+  .neon-title { font-size: 1.4rem; }
+}
