@@ -1,3 +1,6 @@
+body {
+  color: #f8f9fa; /* <--- warna teks global lebih terang */
+}
 /* Dark neon theme */
 :root{
   --neon-cyan: rgba(20, 220, 255, 0.15);
