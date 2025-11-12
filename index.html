@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GrowDay — ToDo & Focus (Dark Neon)</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Optional: Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-dark text-light">
+
+  <div class="container py-4">
+    <header class="d-flex align-items-center justify-content-between mb-4">
+      <div>
+        <h1 class="display-6 neon-title">GrowDay</h1>
+        <p class="text-muted mb-0 small">Atur hari ini. Bentuk masa depanmu.</p>
+      </div>
+      <div class="text-end">
+        <div class="badge bg-transparent border neon-badge" id="xpBadge">XP: 0</div>
+        <div class="mt-2">
+          <button class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#reflectionModal">
+            <i class="bi-journal-text me-1"></i> Reflection
+          </button>
+          <button class="btn btn-primary btn-sm ms-2" id="openFocusBtn"><i class="bi-stopwatch me-1"></i> Focus Mode</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="row g-4">
+      <!-- Left: To-Do -->
+      <section class="col-lg-7">
+        <div class="card neon-card">
+          <div class="card-body">
+            <div class="d-flex mb-3 align-items-center">
+              <input id="newTaskInput" class="form-control me-2 neon-input" placeholder="Tambah tugas: mis. Baca 30 menit" />
+              <select id="goalSelect" class="form-select w-auto me-2 neon-select">
+                <option value="">— Goal —</option>
+              </select>
+              <button id="addTaskBtn" class="btn btn-success"><i class="bi-plus-lg"></i></button>
+            </div>
+
+            <div id="todoList" class="list-group neon-list"></div>
+
+            <div class="mt-3 d-flex justify-content-between align-items-center">
+              <small class="text-muted" id="tasksSummary">0 tugas • 0 selesai</small>
+              <div>
+                <button class="btn btn-outline-light btn-sm me-1" id="clearCompleted">Bersihkan selesai</button>
+                <button class="btn btn-outline-danger btn-sm" id="resetAll">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card neon-card mt-3">
+          <div class="card-body">
+            <h6 class="card-title">Progress Mingguan</h6>
+            <div class="progress neon-progress" style="height:14px;">
+              <div id="weekProgressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width:0%"></div>
+            </div>
+            <div class="mt-2 small text-muted" id="weekProgressText">Streak: 0 hari</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right: Timer + Goals -->
+      <aside class="col-lg-5">
+        <div class="card neon-card mb-3">
+          <div class="card-body text-center">
+            <h5 class="neon-subtitle">Focus Timer</h5>
+            <div id="timerDisplay" class="display-4 neon-timer">25:00</div>
+            <div class="d-flex justify-content-center gap-2 mt-3">
+              <button id="startTimer" class="btn btn-lg btn-success"><i class="bi-play-fill"></i></button>
+              <button id="pauseTimer" class="btn btn-lg btn-warning"><i class="bi-pause-fill"></i></button>
+              <button id="resetTimer" class="btn btn-lg btn-danger"><i class="bi-arrow-counterclockwise"></i></button>
+            </div>
+            <div class="mt-3 small text-muted">Mode: <span id="timerMode">Work</span> • Rounds: <span id="roundsCount">0</span></div>
+          </div>
+        </div>
+
+        <div class="card neon-card mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h6 class="card-title mb-0">Goals</h6>
+              <button class="btn btn-outline-light btn-sm" id="addGoalBtn"><i class="bi-plus-lg"></i> Goal</button>
+            </div>
+            <ul id="goalsList" class="list-group neon-list small"></ul>
+          </div>
+        </div>
+
+        <div class="card neon-card">
+          <div class="card-body">
+            <h6 class="card-title">Daily Quote</h6>
+            <div id="dailyQuote" class="neon-quote">Small steps matter.</div>
+            <div class="mt-2 text-end">
+              <button class="btn btn-outline-light btn-sm" id="newQuoteBtn">Ganti</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <!-- Reflection Modal -->
+  <div class="modal fade" id="reflectionModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content neon-card">
+        <div class="modal-header">
+          <h5 class="modal-title">Reflection Harian</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <label class="form-label">Apa pencapaian kecilmu hari ini?</label>
+          <textarea id="reflectionText" class="form-control neon-input" rows="4" maxlength="300" placeholder="Tulis singkat..."></textarea>
+          <div class="mt-2 small text-muted" id="charCount">0 / 300</div>
+          <hr class="bg-secondary">
+          <h6 class="mb-2">Riwayat Reflection</h6>
+          <ul id="reflectionList" class="list-group neon-list small"></ul>
+        </div>
+        <div class="modal-footer">
+          <button id="saveReflection" class="btn btn-primary">Simpan</button>
+          <button class="btn btn-outline-light" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast for brief notifications -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index:1055">
+    <div id="liveToast" class="toast align-items-center text-bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="toastBody"></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS + Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- App Script -->
+  <script src="script.js"></script>
+</body>
+</html>
