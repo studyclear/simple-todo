@@ -121,3 +121,15 @@ body {
 .card, .list-group-item, .form-control, .form-select, .btn, .modal-content, h1, h2, h3, h4, h5, h6, p, span, label {
   color: #ffffff !important;
 }
+
+/* === FORCE TEXT COLOR === */
+body, .card, .modal-content, .list-group-item, .form-control, .form-select, .btn, h1, h2, h3, h4, h5, h6, p, span, label, small, strong {
+  color: #ffffff !important;
+}
+
+input::placeholder,
+textarea::placeholder,
+select,
+option {
+  color: #cccccc !important;
+}
