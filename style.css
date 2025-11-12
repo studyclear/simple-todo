@@ -1,148 +1,123 @@
+/* === GLOBAL === */
 body {
-  color: #f8f9fa; /* <--- warna teks global lebih terang */
-}
-/* Dark neon theme */
-:root{
-  --neon-cyan: rgba(20, 220, 255, 0.15);
-  --neon-purple: rgba(170, 80, 255, 0.12);
-  --accent: #7df6ff;
-  --accent-2: #c88bff;
-  --muted: #9aa0a6;
-  --card-bg: rgba(15,15,20,0.7);
+  background: radial-gradient(circle at top, #0a0a1a 0%, #000 100%);
+  color: #ffffff; /* teks utama terang */
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
 }
 
-/* Page */
-body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
-
-/* Neon title */
-.neon-title{
-  color: var(--accent);
-  text-shadow:
-    0 0 8px rgba(125,246,255,0.15),
-    0 0 18px rgba(125,246,255,0.10);
-  letter-spacing: -0.5px;
+/* === CARD UTAMA === */
+.card {
+  background: rgba(20, 20, 40, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(125, 246, 255, 0.2);
+  box-shadow: 0 0 20px rgba(125, 246, 255, 0.2);
+  border-radius: 1rem;
+  color: #ffffff; /* teks di card terang */
 }
 
-/* Cards */
-.neon-card{
-  background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border: 1px solid rgba(125,246,255,0.08);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.5), 0 0 30px rgba(125,246,255,0.03) inset;
-  border-radius: 14px;
-}
-
-/* Inputs */
-.neon-input{
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(125,246,255,0.06);
+/* === INPUT DAN SELECT === */
+.neon-input,
+.neon-select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(125, 246, 255, 0.3);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(125,246,255,0.02) inset;
-  border-radius: 10px;
-  transition: box-shadow .18s, border-color .18s;
+  border-radius: 0.5rem;
+  transition: 0.3s;
 }
-.neon-input:focus{
+
+.neon-input:focus,
+.neon-select:focus {
+  box-shadow: 0 0 10px #8ffcff;
+  border-color: #8ffcff;
   outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 4px 28px rgba(125,246,255,0.12);
-  background: rgba(255,255,255,0.03);
 }
 
-/* Tiny neon select */
-.neon-select{
-  background: rgba(255,255,255,0.01);
+/* === BUTTON === */
+.neon-btn {
+  background: linear-gradient(45deg, #00d4ff, #8a2be2);
+  border: none;
   color: #ffffff;
-  border: 1px solid rgba(200,140,255,0.06);
-  border-radius: 10px;
+  border-radius: 0.5rem;
+  transition: 0.3s;
 }
 
-/* Lists */
-.neon-list .list-group-item{
+.neon-btn:hover {
+  box-shadow: 0 0 15px #8ffcff;
+  transform: scale(1.03);
+}
+
+/* === TO-DO LIST === */
+.neon-list .list-group-item {
   background: transparent;
   border: none;
   color: #ffffff;
-  padding-left: 0;
-  padding-right: 0;
-}
-.neon-list .list-group-item + .list-group-item{
-  border-top: 1px dashed rgba(255,255,255,0.02);
+  font-weight: 500;
 }
 
-/* Glowing badges and small stuff */
-.neon-badge{
+.neon-list .list-group-item.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* === QUOTE & REFLECTION === */
+.neon-quote {
+  font-style: italic;
+  text-align: center;
   color: #ffffff;
-  border: 1px solid rgba(125,246,255,0.08);
-  padding: .35rem .6rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 40px rgba(125,246,255,0.035);
+  padding: 0.75rem;
+  border-left: 3px solid #8ffcff;
 }
 
-/* Timer styling */
-.neon-timer{
+/* === TIMER === */
+.timer-display {
+  font-size: 2rem;
   font-weight: 700;
-  color: #d8ffff;
-  text-shadow: 0 6px 30px rgba(125,246,255,0.08);
-}
-.neon-subtitle{
-  color: var(--accent-2);
-  text-shadow: 0 0 14px rgba(200,140,255,0.08);
-}
-
-/* Quote box */
-.neon-quote{
-  padding: 12px;
-  border-radius: 10px;
-  background: linear-gradient(90deg, rgba(125,246,255,0.03), rgba(200,140,255,0.02));
-  border: 1px solid rgba(255,255,255,0.018);
   color: #ffffff;
+  text-shadow: 0 0 10px #00d4ff;
 }
 
-/* Progress bar slight glow */
-.neon-progress .progress-bar{
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  box-shadow: 0 6px 24px rgba(125,246,255,0.06);
+/* === MODAL REFLECTION === */
+.modal-content {
+  background: rgba(30, 30, 60, 0.9);
+  color: #ffffff;
+  border: 1px solid rgba(125, 246, 255, 0.2);
+  border-radius: 1rem;
 }
 
-/* List item custom */
-.todo-item {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 12px;
-  align-items: center;
-  padding: 10px 6px;
-}
-
-/* Task title */
-.task-title{
+/* === BADGE DAN TEKS KECIL === */
+.neon-badge {
+  background: linear-gradient(90deg, #8a2be2, #00d4ff);
+  color: #ffffff;
+  border-radius: 0.4rem;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: -0.2px;
 }
 
-/* Small pill for goal tag */
-.goal-pill{
-  font-size: 11px;
-  padding: 4px 8px;
-  border-radius: 999px;
-  border: 1px solid rgba(200,140,255,0.06);
-  background: rgba(200,140,255,0.02);
-  color: #f1eaff;
+/* === PROGRESS BAR === */
+.progress {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
 }
 
-/* Glow on hover for buttons */
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(125,246,255,0.06);
+.progress-bar {
+  background: linear-gradient(90deg, #00d4ff, #8a2be2);
+  box-shadow: 0 0 10px #00d4ff;
 }
 
-/* Tiny animations */
-.fade-in {
-  animation: fadeInUp .28s ease both;
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* === ANIMASI === */
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 10px #00d4ff; }
+  50% { box-shadow: 0 0 20px #8a2be2; }
+  100% { box-shadow: 0 0 10px #00d4ff; }
 }
 
-/* small responsive */
-@media (max-width: 767px){
-  .neon-title { font-size: 1.4rem; }
+.neon-glow {
+  animation: glowPulse 3s infinite alternate;
+}
+
+/* === OVERRIDE TEKS LAIN === */
+.card, .list-group-item, .form-control, .form-select, .btn, .modal-content, h1, h2, h3, h4, h5, h6, p, span, label {
+  color: #ffffff !important;
 }
