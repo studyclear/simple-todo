@@ -8,7 +8,7 @@ body {
 
 /* === CARD UTAMA === */
 .card {
-  background: rgba(20, 20, 40, 0.6);
+  background: rgba(20, 20, 40, 0.85);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(125, 246, 255, 0.2);
   box-shadow: 0 0 20px rgba(125, 246, 255, 0.2);
