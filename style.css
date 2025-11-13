@@ -117,73 +117,47 @@ body {
   animation: glowPulse 3s infinite alternate;
 }
 
-/* === OVERRIDE TEKS LAIN === */
-.card, .list-group-item, .form-control, .form-select, .btn, .modal-content, h1, h2, h3, h4, h5, h6, p, span, label {
+/* === FIX: Warna teks kontras dan stabil === */
+
+/* warna teks global */
+body, p, span, label, small, strong, h1, h2, h3, h4, h5, h6 {
   color: #ffffff !important;
 }
 
-/* === FORCE TEXT COLOR === */
-body, .card, .modal-content, .list-group-item, .form-control, .form-select, .btn, h1, h2, h3, h4, h5, h6, p, span, label, small, strong {
-  color: #ffffff !important;
+/* teks abu Bootstrap jadi putih kebiruan */
+.text-muted,
+small,
+.status-text,
+.progress-info,
+.empty-message {
+  color: #b8f3ff !important;
 }
 
+/* teks pada input, select, textarea */
+input, select, textarea {
+  color: #ffffff !important;
+  background: rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(125,246,255,0.25);
+}
+
+/* placeholder input */
+::placeholder,
 input::placeholder,
-textarea::placeholder,
-select,
-option {
-  color: #cccccc !important;
-}
-
-/* === FORCE ALL TEXT TO BRIGHT === */
-* {
-  color: #ffffff !important;
-}
-
-input::placeholder,
-textarea::placeholder,
-select,
-option {
-  color: #cccccc !important;
-}
-
-/* === PERBAIKAN TEKS YANG MASIH GELAP === */
-
-/* placeholder input "Tambah tugas..." */
-::placeholder {
-  color: #e0f7ff !important; /* biru muda terang agar kontras */
+textarea::placeholder {
+  color: #aeeaff !important;
   opacity: 1 !important;
 }
 
-/* teks status seperti "Belum ada tugas", "Streak: 0 hari" */
-.status-text,
-.progress-info,
-.empty-message,
-small,
-.text-muted {
-  color: #e0f7ff !important;
-}
-
-/* subtitle kecil di timer (Mode: Work • Rounds: 0) */
+/* subtitle timer, badge, label kecil */
 .timer-subtitle,
 .subtitle,
 label,
 .badge {
-  color: #c5f5ff !important;
+  color: #c9f8ff !important;
 }
 
-/* teks di input dan select agar terlihat saat mengetik */
-input, select, textarea {
-  color: #ffffff !important;
-  background: rgba(255,255,255,0.05) !important;
-  border: 1px solid rgba(125,246,255,0.2);
-}
-
-/* jika ada teks putih di area terlalu terang */
+/* kontras background card/modal */
 .card, .modal-content {
-  background: rgba(20, 20, 40, 0.85) !important; /* perkuat kontras */
-}
-
-/* khusus elemen dalam card, modal, progress, dll */
-.card, .modal-content, .list-group-item, .form-control, .form-select, .btn, p, span, label, small, strong {
+  background: rgba(20, 20, 40, 0.88) !important;
   color: #ffffff !important;
 }
