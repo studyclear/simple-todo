@@ -133,3 +133,20 @@ select,
 option {
   color: #cccccc !important;
 }
+
+/* === FORCE ALL TEXT TO BRIGHT === */
+* {
+  color: #ffffff !important;
+}
+
+input::placeholder,
+textarea::placeholder,
+select,
+option {
+  color: #cccccc !important;
+}
+
+/* khusus elemen dalam card, modal, progress, dll */
+.card, .modal-content, .list-group-item, .form-control, .form-select, .btn, p, span, label, small, strong {
+  color: #ffffff !important;
+}
