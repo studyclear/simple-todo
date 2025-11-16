@@ -394,6 +394,3 @@ renderAll();
 window.GrowDay = { todos, goals, stats, reflections };
 
 /* End of file */
-
-
-susun final lengkap aku sudah mengirimkan 3 file nya
