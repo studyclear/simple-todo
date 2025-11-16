@@ -1,9 +1,11 @@
 /* === GLOBAL === */
 body {
-  background: radial-gradient(circle at top, #0a0a1a 0%, #000 100%);
-  color: #ffffff; /* teks utama terang */
+  margin: 0;
+  padding: 0;
   font-family: 'Poppins', sans-serif;
-  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72, #2a5298); /* biru gradient */
+  background-attachment: fixed;
+  color: #fff; 
 }
 
 /* === CARD UTAMA === */
@@ -154,6 +156,16 @@ textarea::placeholder {
 label,
 .badge {
   color: #c9f8ff !important;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-top: 20px;
+  color: #ffffff;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
 /* kontras background card/modal */
