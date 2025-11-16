@@ -394,3 +394,90 @@ renderAll();
 window.GrowDay = { todos, goals, stats, reflections };
 
 /* End of file */
+// ========================
+// THEME TOGGLE
+// ========================
+const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+        themeToggle.innerHTML = '<i class="bi-moon"></i>';
+        localStorage.setItem("theme", "light");
+    } else {
+        themeToggle.innerHTML = '<i class="bi-brightness-high"></i>';
+        localStorage.setItem("theme", "dark");
+    }
+});
+
+// Load theme dari localStorage
+window.addEventListener("load", () => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "light") {
+        document.body.classList.add("light-mode");
+        themeToggle.innerHTML = '<i class="bi-moon"></i>';
+    }
+});
+
+// ========================
+// GOALS: ADD, EDIT, DELETE
+// ========================
+const goalBtn = document.getElementById("addGoalBtn");
+const goalsList = document.getElementById("goalsList");
+const goalSelect = document.getElementById("goalSelect");
+
+let goals = JSON.parse(localStorage.getItem("goals_v1") || "[]");
+renderGoals();
+
+goalBtn.onclick = () => {
+    const name = prompt("Nama goal:");
+    if (!name) return;
+    goals.push(name);
+    saveGoals();
+    renderGoals();
+};
+
+function renderGoals() {
+    goalsList.innerHTML = "";
+    goalSelect.innerHTML = '<option value="">— Goal —</option>';
+
+    goals.forEach((g, i) => {
+        // tambahkan ke dropdown
+        const option = document.createElement("option");
+        option.value = g;
+        option.textContent = g;
+        goalSelect.appendChild(option);
+
+        // tampilkan di list
+        const li = document.createElement("li");
+        li.className = "list-group-item d-flex justify-content-between align-items-center";
+        li.innerHTML = `
+            <span>${g}</span>
+            <div>
+                <button class="btn btn-sm btn-warning me-1" onclick="editGoal(${i})"><i class="bi-pencil"></i></button>
+                <button class="btn btn-sm btn-danger" onclick="deleteGoal(${i})"><i class="bi-trash"></i></button>
+            </div>
+        `;
+        goalsList.appendChild(li);
+    });
+}
+
+function saveGoals() {
+    localStorage.setItem("goals_v1", JSON.stringify(goals));
+}
+
+window.editGoal = (i) => {
+    const updated = prompt("Edit goal:", goals[i]);
+    if (!updated) return;
+    goals[i] = updated;
+    saveGoals();
+    renderGoals();
+};
+
+window.deleteGoal = (i) => {
+    if (!confirm("Hapus goal ini?")) return;
+    goals.splice(i, 1);
+    saveGoals();
+    renderGoals();
+};
