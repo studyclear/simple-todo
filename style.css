@@ -173,3 +173,46 @@ label,
   background: rgba(20, 20, 40, 0.88) !important;
   color: #ffffff !important;
 }
+
+/* --------------------------
+   THEME: DARK MODE (default)
+---------------------------*/
+.dark-mode body,
+body.dark-mode {
+  background: linear-gradient(135deg, #1e3c72, #2a5298) !important;
+  color: #ffffff !important;
+}
+
+.dark-mode .card,
+body.dark-mode .card {
+  background: rgba(20, 20, 40, 0.88) !important;
+}
+
+/* --------------------------
+   THEME: LIGHT MODE
+---------------------------*/
+body.light-mode {
+  background: linear-gradient(135deg, #d9e8ff, #ffffff) !important;
+  color: #0d1b2a !important;
+}
+
+body.light-mode .card {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #0d1b2a !important;
+  border: 1px solid #9abfff;
+}
+
+body.light-mode input,
+body.light-mode textarea,
+body.light-mode select {
+  background: rgba(0,0,0,0.05) !important;
+  color: #0d1b2a !important;
+}
+
+body.light-mode .text-muted {
+  color: #4f5d75 !important;
+}
+
+body.light-mode .neon-badge {
+  background: linear-gradient(90deg, #4f46e5, #00aaff);
+}
