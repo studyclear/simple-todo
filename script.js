@@ -337,6 +337,21 @@ resetBtn.onclick = () => {
   toast('Timer direset');
 };
 
+const switchModeBtn = $('switchModeBtn');
+
+switchModeBtn.onclick = () => {
+  if (timer.mode === 'work') {
+    timer.mode = 'break';
+    timer.remaining = timer.breakDuration;
+    toast('Mode diubah ke Break');
+  } else {
+    timer.mode = 'work';
+    timer.remaining = timer.workDuration;
+    toast('Mode diubah ke Work');
+  }
+  renderTimer();
+};
+
 /* open focus: quick full-screen-ish effect */
 openFocusBtn.onclick = async () => {
   // try go fullscreen for chrome-like effect
