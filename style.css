@@ -173,3 +173,23 @@ label,
   background: rgba(20, 20, 40, 0.88) !important;
   color: #ffffff !important;
 }
+
+.btn-mode {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ff7dd8, #ff4fa3);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn-mode:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.btn-mode:active {
+  transform: scale(0.96);
+}
